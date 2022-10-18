@@ -1,4 +1,4 @@
-package web.service;
+package web.dao;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
