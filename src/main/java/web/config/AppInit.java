@@ -1,6 +1,12 @@
 package web.config;
 
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -25,5 +31,22 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return new Filter[]{characterEncodingFilter};
+    }
+    @Override
+    public void onStartup(ServletContext servletContext) {
+        AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
+        appContext.register(WebConfig.class);
 
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
+                "SpringDispatcher", new DispatcherServlet(appContext));
+        dispatcher.setLoadOnStartup(1);
+        dispatcher.addMapping("/");
+
+    }
 }
