@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Add New User</title>
 </head>
 <body>
 <h2>Add New User</h2>
@@ -16,7 +17,7 @@
     }
 </style>
 <form th:method="post" th:action="@{/saveUser}" th:object="${user}"
-      style="font-size: xx-large; font-family: 'Javanese Text';outline: dashed">
+      style="font-size: xx-large; font-family: 'Javanese Text',system-ui;outline: dashed">
     <p>
         <label for="name">Name:</label>
         <input type="text" th:field="*{name}" id="name" style="background-color: #a4a4a4; font-size: x-large">
@@ -39,7 +40,7 @@
     </p>
 
     <input type="submit" value="OK"
-           style="font-family: 'Segoe UI Symbol'; color:rgba(2,2,2,0.91); font-size: large; background-color: rgba(129,129,129,0.55)">
+           style="font-family: 'Segoe UI Symbol',system-ui; color:rgba(2,2,2,0.91); font-size: large; background-color: rgba(129,129,129,0.55)">
 
 </form>
 </body>

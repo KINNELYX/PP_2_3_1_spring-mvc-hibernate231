@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
-
 import java.util.List;
 
 
@@ -49,7 +48,7 @@ public class UserController {
     }
 
     @RequestMapping("/deleteUser/{id}")
-    public String deleteUser(@PathVariable(name = "id") int id, Model model) {
+    public String deleteUser(@PathVariable(name = "id") int id) {
         userService.deleteUser(id);
         return "redirect:/";
     }

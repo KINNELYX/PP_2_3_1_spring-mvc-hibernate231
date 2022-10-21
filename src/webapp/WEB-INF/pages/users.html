@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Users</title>
 </head>
 <body>
-<h1 align="center" style="font-family: 'Javanese Text'">Table of Users</h1>
+<h1 align="center" style="font-family: 'Javanese Text',system-ui">Table of Users</h1>
 <style>table th, table td {
     padding: 15px;
     width: 7%;
@@ -19,12 +20,12 @@
     }
 </style>
 <h3 align="center">
-    <input type="button" value="add new user"
-           onclick="window.location.href= 'addUser'" style="font-family: 'Segoe UI Symbol'; color:rgba(2,2,2,0.91); font-size: large; background-color: rgba(129,129,129,0.55)"/>
+    <input type="button" value="Add new user"
+           onclick="window.location.href= 'addUser'" style="font-family: 'Segoe UI Symbol',system-ui; color:rgba(2,2,2,0.91); font-size: large; background-color: rgba(129,129,129,0.55)"/>
 </h3>
 <br>
 <table border="1" cellpadding="5" align="center">
-    <tr style="font-size: 30px; font-style: initial; font-family: 'Segoe UI Black'">
+    <tr style="font-size: 30px; font-style: initial; font-family: 'Segoe UI Black',system-ui">
         <th> Id</th>
         <th> Name</th>
         <th> Surname</th>
@@ -40,7 +41,7 @@
         <td th:utext="${user.getAge()}"></td>
         <td align="center">
             <a th:href="@{/updateUser/{id}(id=${user.getId()})}"style="color: black">Update</a>
-            <b>/</b>
+            <b>|</b>
             <a th:href="@{/deleteUser/{id}(id=${user.getId()})}" style="color: black">Delete</a>
         </td>
     </tr>
